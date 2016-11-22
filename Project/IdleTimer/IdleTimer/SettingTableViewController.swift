@@ -33,14 +33,14 @@ class SettingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataCenter.resource.count
+        return dataCenter.history.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath)
         
-        let branch = dataCenter.resource[indexPath.row]
-        cell.textLabel?.text = String(branch)
+        let branch = dataCenter.history[indexPath.row]
+        cell.textLabel?.text = branch.title
         // Configure the cell...
         
         return cell
