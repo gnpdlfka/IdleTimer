@@ -41,6 +41,15 @@ class resource {
     }
 }
 
+let timerData : timerClass = timerClass()
+
+class timerClass {
+    var timerIsOn = false
+    var timer = Timer()
+    var minutes = 0
+    var countValue = 0
+}
+
 //1.History(start, end, title, category, success)
 //
 //2.Resource ->
