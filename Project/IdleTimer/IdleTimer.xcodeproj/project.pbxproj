@@ -17,6 +17,7 @@
 		626BCC9A1DC82C1D00FD34C5 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626BCC991DC82C1D00FD34C5 /* SettingTableViewController.swift */; };
 		626BCC9C1DC82C9500FD34C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626BCC9B1DC82C9500FD34C5 /* Data.swift */; };
 		62A0E0E31DD15D2500AD973A /* CoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0E0E21DD15D2500AD973A /* CoinViewController.swift */; };
+		62B2C4711DE9DDA3005F7B95 /* clear_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 62B2C4701DE9DDA3005F7B95 /* clear_sound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		626BCC991DC82C1D00FD34C5 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		626BCC9B1DC82C9500FD34C5 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Data.swift; path = ../Data.swift; sourceTree = "<group>"; };
 		62A0E0E21DD15D2500AD973A /* CoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinViewController.swift; path = ../CoinViewController.swift; sourceTree = "<group>"; };
+		62B2C4701DE9DDA3005F7B95 /* clear_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clear_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				6201E8E71DBEF4550006B173 /* Assets.xcassets */,
 				6201E8E91DBEF4550006B173 /* LaunchScreen.storyboard */,
 				6201E8EC1DBEF4550006B173 /* Info.plist */,
+				62B2C4701DE9DDA3005F7B95 /* clear_sound.mp3 */,
 			);
 			path = IdleTimer;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B2C4711DE9DDA3005F7B95 /* clear_sound.mp3 in Resources */,
 				6201E8EB1DBEF4550006B173 /* LaunchScreen.storyboard in Resources */,
 				6201E8E81DBEF4550006B173 /* Assets.xcassets in Resources */,
 				6201E8E61DBEF4550006B173 /* Main.storyboard in Resources */,

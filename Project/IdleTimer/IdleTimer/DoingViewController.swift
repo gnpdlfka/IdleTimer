@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DoingViewController: UIViewController {
 
     func updateTimer() {
         if (timerData.minutes == 55) {
             cancelButton(self)
+            
+            if let SoundURL = Bundle.main.url(forResource: "clear_sound", withExtension:"mp3"){
+                            var mySound : SystemSoundID = 0
+                            AudioServicesCreateSystemSoundID(SoundURL as CFURL, &mySound)
+                            AudioServicesPlaySystemSound(mySound)
+                            }
             
             let alertController = UIAlertController(title: "타이머 완료", message: "타이머가 완료되었습니다. 축하합니다", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
          
