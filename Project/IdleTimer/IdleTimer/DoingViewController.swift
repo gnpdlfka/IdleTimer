@@ -10,20 +10,20 @@ import UIKit
 import AVFoundation
 
 class DoingViewController: UIViewController {
-
+    
     func updateTimer() {
+
         if (timerData.minutes == 55) {
             cancelButton(self)
             
             if let SoundURL = Bundle.main.url(forResource: "clear_sound", withExtension:"mp3"){
-                            var mySound : SystemSoundID = 0
-                            AudioServicesCreateSystemSoundID(SoundURL as CFURL, &mySound)
-                            AudioServicesPlaySystemSound(mySound)
-                            }
+                var mySound : SystemSoundID = 0
+                AudioServicesCreateSystemSoundID(SoundURL as CFURL, &mySound)
+                AudioServicesPlaySystemSound(mySound)
+            }
             
-            let alertController = UIAlertController(title: "타이머 완료", message: "타이머가 완료되었습니다. 축하합니다", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+            let alertController = UIAlertController(title: "타이머 완료", message: "타이머가 완료되었습니다. 축하합니다", preferredStyle: UIAlertControllerStyle.alert)
          
-            // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                 self.dismiss(animated: true, completion: nil)
             }
@@ -33,6 +33,21 @@ class DoingViewController: UIViewController {
         } else {
             timerData.minutes -= 1
             timerLabel.text = "\(timerData.minutes/60)"+" min"+" \(timerData.minutes%60)"+" sec"
+            if (!timerData.appOutTogle){
+                timerData.timer.invalidate()
+                timerData.timerIsOn = false
+                
+                let alertController = UIAlertController(title: "타이머 실패", message: "앱에서 나가시면 타이머가 취소됩니다", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+                
+                // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+
+                timerData.appOutTogle = true
+            }
         }
     }
     
@@ -48,10 +63,12 @@ class DoingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //이 뷰에 들어오면 바로 타이머 동작 시작
         if (timerData.timerIsOn == false){
             timerData.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(DoingViewController.updateTimer)), userInfo: nil, repeats: true)
             timerData.timerIsOn = true
         }
+
         // Do any additional setup after loading the view.
     }
 

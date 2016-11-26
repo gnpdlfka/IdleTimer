@@ -8,6 +8,7 @@
 
 import Foundation
 
+//테이블 뷰에 쓰이는 데이터 입니다.
 let dataCenter : dataClass = dataClass()
 
 class dataClass {
@@ -41,20 +42,12 @@ class resource {
     }
 }
 
+//StartVewConroller, DoingViewController에 쓰이는 데이터입니다.
 let timerData : timerClass = timerClass()
 
 class timerClass {
     var timerIsOn = false
     var timer = Timer()
     var minutes = 0
-    var countValue = 0
+    var appOutTogle = true
 }
-
-//1.History(start, end, title, category, success)
-//
-//2.Resource ->
-//Completed, Failed, Purchased
-//
-//3.ItemList, MyItemList
-//
-//4.Status(counting, done)
