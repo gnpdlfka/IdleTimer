@@ -197,7 +197,6 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="DsF-ir-IvU" eventType="touchUpInside" id="D8F-ut-umf"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="bBf-cM-e9N"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-Ak-5As">

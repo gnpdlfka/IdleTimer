@@ -14,7 +14,8 @@ class DoingViewController: UIViewController {
     func updateTimer() {
 
         if (timerData.minutes == 55) {
-            cancelButton(self)
+            timerData.timer.invalidate()
+            timerData.timerIsOn = false
             
             if let SoundURL = Bundle.main.url(forResource: "clear_sound", withExtension:"mp3"){
                 var mySound : SystemSoundID = 0
@@ -59,6 +60,7 @@ class DoingViewController: UIViewController {
     @IBAction func cancelButton(_ sender: AnyObject) {
             timerData.timer.invalidate()
             timerData.timerIsOn = false
+            self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
