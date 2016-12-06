@@ -9,40 +9,46 @@
 import Foundation
 
 //테이블 뷰에 쓰이는 데이터 입니다.
+
 let dataCenter : dataClass = dataClass()
+let dateFormatter = DateFormatter()
+
+
 
 class dataClass {
+    var count = 0
     var history : [historyClass]
-    var resource = [0, 1]
+    var coin = 0
+    var category = ["Default", "Health", "Study", "Me", "Friend"]
     
     init() {
-        let abc = historyClass()
-        history = [abc]
+        history = [historyClass()]
+        dateFormatter.dateFormat = "yyyy년 M월 d일"
     }
 }
+
 
 class historyClass {
-    var start : Int = 0
-    var end : Int = 0
-    var title : String = "Basic Timer"
-    var success : Bool = false
+    var seconds : Int
+    var title : String
+    var success : Bool
+    var date = NSDate()
+    var category : String
+    
+    init(){
+        seconds = 0
+        title = "Sample"
+        success = false
+        date = NSDate()
+        category = "Default"
+    }
+
 }
 
-class resource {
-    var resourceNow : Int = 0
-    
-    func completed() {
-        resourceNow += 2
-    }
-    func failed() {
-        resourceNow -= 1
-    }
-    func purchased() {
-        resourceNow -= 2
-    }
-}
+
 
 //StartVewConroller, DoingViewController에 쓰이는 데이터입니다.
+
 let timerData : timerClass = timerClass()
 
 class timerClass {

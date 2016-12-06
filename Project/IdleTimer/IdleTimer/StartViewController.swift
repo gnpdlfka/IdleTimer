@@ -10,9 +10,24 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    @IBOutlet weak var coin: UIButton!
+    
+    @IBOutlet weak var timerTitle: UITextField!
+    
+    @IBOutlet weak var categorySegment: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+      
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        coin.setTitle(String(dataCenter.coin)+" coin", for: .normal)
+        for i in 0...4 {
+            categorySegment.setTitle(dataCenter.category[i], forSegmentAt: i)
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -21,7 +36,24 @@ class StartViewController: UIViewController {
     @IBOutlet weak var timeInput: UIDatePicker!
     
     @IBAction func startButton(_ sender: AnyObject) {
+
+        
+        let thisHistory : historyClass = historyClass()
+        if (timerTitle.text != ""){
+            thisHistory.title = timerTitle.text!
+        } else { thisHistory.title = "No Title"}
+        
+        thisHistory.seconds = Int(timeInput.countDownDuration/60)
+        thisHistory.category = dataCenter.category[self.categorySegment.selectedSegmentIndex]
+        
+        
+        dataCenter.history += [thisHistory]
+        
         timerData.minutes = Int(timeInput.countDownDuration/60)*60
+
+        dataCenter.count += 1
+
+
     }
     
     /*
