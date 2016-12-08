@@ -20,6 +20,7 @@ class dataClass {
     var history : [historyClass]
     var coin = 0
     var category = ["Default", "Health", "Study", "Me", "Friend"]
+    var item = [true, true, true, true, true]
     
     init() {
         history = [historyClass()]

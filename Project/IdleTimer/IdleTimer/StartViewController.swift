@@ -16,6 +16,9 @@ class StartViewController: UIViewController {
     
     @IBOutlet weak var categorySegment: UISegmentedControl!
     
+    @IBOutlet weak var item1: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -26,6 +29,8 @@ class StartViewController: UIViewController {
         for i in 0...4 {
             categorySegment.setTitle(dataCenter.category[i], forSegmentAt: i)
         }
+        
+        item1.isHidden = dataCenter.item[0]
     }
     
 

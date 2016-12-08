@@ -14,6 +14,23 @@ class ItemTableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet weak var item1Get: UIButton!
+    
+    @IBAction func item1Get(_ sender: UIButton) {
+        if (dataCenter.item[0]){
+            dataCenter.item[0] = false
+            dataCenter.coin -= 1
+            item1Get.setTitle("Purchased", for: .normal)
+        }
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        if (!dataCenter.item[0]){
+            item1Get.setTitle("Purchased", for: .normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
