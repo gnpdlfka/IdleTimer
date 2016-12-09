@@ -14,6 +14,7 @@ class MyProtoTableViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var minute: UILabel!
+    @IBOutlet weak var success: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

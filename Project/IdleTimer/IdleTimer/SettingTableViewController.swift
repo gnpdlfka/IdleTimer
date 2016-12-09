@@ -56,7 +56,13 @@ class SettingTableViewController: UITableViewController {
         cell.title.text = branch.title
         cell.date.text = dateFormatter.string(from: branch.date as Date)
         cell.category.text = branch.category
-        cell.minute.text = String(branch.seconds)
+        cell.minute.text = String(branch.seconds) + " minutes"
+        
+        if branch.success {
+            cell.success.text = "Success"}
+        else {
+            cell.success.text = "Fail"
+        }
         
         return cell
     }
