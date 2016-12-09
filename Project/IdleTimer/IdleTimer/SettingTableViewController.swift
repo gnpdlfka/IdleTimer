@@ -50,8 +50,8 @@ class SettingTableViewController: UITableViewController {
         */
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath) as! MyProtoTableViewCell
-        
-        let branch = dataCenter.history[indexPath.row]
+        let count = dataCenter.history.count
+        let branch = dataCenter.history[count - 1 - indexPath.row]
         
         cell.title.text = branch.title
         cell.date.text = dateFormatter.string(from: branch.date as Date)
