@@ -18,6 +18,7 @@ class DoingViewController: UIViewController {
             timerData.timer.invalidate()
             timerData.timerIsOn = false
             dataCenter.history[dataCenter.count].success = true
+            dataCenter.results["success"]! += 1
             dataCenter.coin = Int(dataCenter.history[dataCenter.count].seconds)
 
             
@@ -44,6 +45,7 @@ class DoingViewController: UIViewController {
                 timerData.timer.invalidate()
                 timerData.timerIsOn = false
                 dataCenter.history[dataCenter.count].success = false
+                dataCenter.results["fail"]! += 1
 
                 
                 let alertController = UIAlertController(title: "타이머 실패", message: "앱에서 나가시면 타이머가 취소됩니다", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
@@ -72,6 +74,7 @@ class DoingViewController: UIViewController {
             timerData.timer.invalidate()
             timerData.timerIsOn = false
             dataCenter.history[dataCenter.count].success = false
+            dataCenter.results["fail"]! += 1
             self.dismiss(animated: true, completion: nil)
     }
     

@@ -26,6 +26,9 @@ class dataClass {
         history = [historyClass()]
         dateFormatter.dateFormat = "yyyy년 M월 d일"
     }
+    
+    var results:Dictionary<String,Int> = ["success":0, "fail":0]
+    
 }
 
 
@@ -45,6 +48,8 @@ class historyClass {
     }
 
 }
+
+
 
 
 

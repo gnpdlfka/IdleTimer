@@ -68,6 +68,26 @@ class SettingTableViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        let strForSectionHeader = String(dataCenter.results["success"]!) + " success, " + String(dataCenter.results["fail"]!) + " failure"
+        
+        
+        return strForSectionHeader
+    }
+    
+    
+ /*
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        let strForSectionHeader = String(dataCenter.results["success"]!) + " success, " + String(dataCenter.results["fail"]!) + " failure"
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.text = strForSectionHeader
+        
+    }
+  */
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

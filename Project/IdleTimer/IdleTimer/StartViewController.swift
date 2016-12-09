@@ -53,6 +53,9 @@ class StartViewController: UIViewController {
         
         
         dataCenter.history += [thisHistory]
+
+        
+    
         
         timerData.minutes = Int(timeInput.countDownDuration/60)*60
 
