@@ -41,11 +41,22 @@ class SettingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /*
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath)
         
         let branch = dataCenter.history[indexPath.row]
         cell.textLabel?.text = String(branch.seconds) + ", " + branch.category + ", " + branch.title + ", " + dateFormatter.string(from: branch.date as Date) + ", " + String(branch.success)
         // Configure the cell...
+        */
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath) as! MyProtoTableViewCell
+        
+        let branch = dataCenter.history[indexPath.row]
+        
+        cell.title.text = branch.title
+        cell.date.text = dateFormatter.string(from: branch.date as Date)
+        cell.category.text = branch.category
+        cell.minute.text = String(branch.seconds)
         
         return cell
     }
