@@ -18,9 +18,9 @@ let dateFormatter = DateFormatter()
 class dataClass {
     var count = 0
     var history : [historyClass]
-    var coin = 0
+    var coin = 50
     var category = ["Default", "Health", "Study", "Me", "Friend"]
-    var item = [true, true, true, true, true]
+    var item = [false, true, true, true, true, true]
     
     init() {
         history = [historyClass()]

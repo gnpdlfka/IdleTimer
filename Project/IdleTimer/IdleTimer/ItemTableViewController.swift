@@ -9,26 +9,174 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
+    
+    @IBOutlet weak var coins: UIBarButtonItem!
 
     @IBAction func cancel(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var item1Get: UIButton!
-    
     @IBAction func item1Get(_ sender: UIButton) {
-        if (dataCenter.item[0]){
-            dataCenter.item[0] = false
-            dataCenter.coin -= 1
-            item1Get.setTitle("Purchased", for: .normal)
+        if (dataCenter.coin >= 1){
+            if (!item1Get.isSelected){
+                for i in 0...5 {
+                    dataCenter.item[i] = true
+                }
+                dataCenter.item[0] = false
+                dataCenter.coin -= 1
+                coins.title = String(dataCenter.coin)+" coin"
+                
+                item1Get.isSelected = true
+                item2Get.isSelected = false
+                item3Get.isSelected = false
+                item4Get.isSelected = false
+                item5Get.isSelected = false
+                item6Get.isSelected = false
+            }
         }
         
     }
+    
+    @IBOutlet weak var item2Get: UIButton!
+    @IBAction func item2Get(_ sender: UIButton) {
+        if (dataCenter.coin >= 5){
+            if (!item2Get.isSelected){
+                for i in 0...5 {
+                    dataCenter.item[i] = true
+                }
+                dataCenter.item[1] = false
+                dataCenter.coin -= 5
+                coins.title = String(dataCenter.coin)+" coin"
+                
+                item2Get.isSelected = true
+                item1Get.isSelected = false
+                item3Get.isSelected = false
+                item4Get.isSelected = false
+                item5Get.isSelected = false
+                item6Get.isSelected = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var item3Get: UIButton!
+    @IBAction func item3Get(_ sender: UIButton) {
+        if (dataCenter.coin >= 1){
+            if (!item3Get.isSelected){
+                for i in 0...5 {
+                    dataCenter.item[i] = true
+                }
+                dataCenter.item[2] = false
+                dataCenter.coin -= 1
+                coins.title = String(dataCenter.coin)+" coin"
+                
+                item3Get.isSelected = true
+                item1Get.isSelected = false
+                item2Get.isSelected = false
+                item4Get.isSelected = false
+                item5Get.isSelected = false
+                item6Get.isSelected = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var item4Get: UIButton!
+    @IBAction func item4Get(_ sender: UIButton) {
+        if (dataCenter.coin >= 1){
+            if (!item4Get.isSelected){
+                for i in 0...5 {
+                    dataCenter.item[i] = true
+                }
+                dataCenter.item[3] = false
+                dataCenter.coin -= 1
+                coins.title = String(dataCenter.coin)+" coin"
+                
+                item4Get.isSelected = true
+                item1Get.isSelected = false
+                item2Get.isSelected = false
+                item3Get.isSelected = false
+                item5Get.isSelected = false
+                item6Get.isSelected = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var item5Get: UIButton!
+    @IBAction func item5Get(_ sender: UIButton) {
+        if (dataCenter.coin >= 3){
+            if (!item5Get.isSelected){
+                for i in 0...5 {
+                    dataCenter.item[i] = true
+                }
+                dataCenter.item[4] = false
+                dataCenter.coin -= 3
+                coins.title = String(dataCenter.coin)+" coin"
+                
+                item5Get.isSelected = true
+                item1Get.isSelected = false
+                item2Get.isSelected = false
+                item3Get.isSelected = false
+                item4Get.isSelected = false
+                item6Get.isSelected = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var item6Get: UIButton!
+    @IBAction func item6Get(_ sender: UIButton) {
+        if (dataCenter.coin >= 3){
+            if (!item6Get.isSelected){
+                dataCenter.coin -= 2
+
+                for i in 0...5 {
+                    dataCenter.item[i] = true
+                }
+                dataCenter.item[5] = false
+                coins.title = String(dataCenter.coin)+" coin"
+                
+                item6Get.isSelected = true
+                item1Get.isSelected = false
+                item2Get.isSelected = false
+                item3Get.isSelected = false
+                item4Get.isSelected = false
+                item5Get.isSelected = false
+            }
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
-        if (!dataCenter.item[0]){
-            item1Get.setTitle("Purchased", for: .normal)
-        }
+            coins.title = String(dataCenter.coin)+" coin"
+        
+            if (!dataCenter.item[0]){
+                item1Get.isSelected = true
+            } else {
+                item1Get.isSelected = false
+            }
+            if (!dataCenter.item[1]){
+                item2Get.isSelected = true
+            } else {
+                item2Get.isSelected = false
+            }
+            if (!dataCenter.item[2]){
+                item3Get.isSelected = true
+            } else {
+                item3Get.isSelected = false
+            }
+            if (!dataCenter.item[3]){
+                item4Get.isSelected = true
+            } else {
+                item4Get.isSelected = false
+            }
+            if (!dataCenter.item[4]){
+                item5Get.isSelected = true
+            } else {
+                item5Get.isSelected = false
+            }
+            if (!dataCenter.item[5]){
+                item6Get.isSelected = true
+            } else {
+                item6Get.isSelected = false
+            }
     }
     
     override func viewDidLoad() {

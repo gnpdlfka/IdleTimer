@@ -19,7 +19,7 @@ class DoingViewController: UIViewController {
             timerData.timerIsOn = false
             dataCenter.history[dataCenter.count].success = true
             dataCenter.results["success"]! += 1
-            dataCenter.coin = Int(dataCenter.history[dataCenter.count].seconds)
+            dataCenter.coin += Int(dataCenter.history[dataCenter.count].seconds)
 
             
             
@@ -78,7 +78,9 @@ class DoingViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
     }
     
-    let imageArray = [UIImage(named: "anim0")!, UIImage(named: "anim1")!, UIImage(named: "anim2")!, UIImage(named: "anim3")!]
+    var imageArray : [UIImage] = []
+    
+
 
     @IBOutlet weak var Animation: UIImageView!
 
@@ -91,6 +93,32 @@ class DoingViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        if (!dataCenter.item[0]){
+            Animation.animationDuration = 1
+            imageArray = [UIImage(named: "time0")!, UIImage(named: "time2")!, UIImage(named: "time3")!, UIImage(named: "time4")!, UIImage(named: "time4-1")!, UIImage(named: "time5")!, UIImage(named: "time5-1")!, UIImage(named: "time6")!, UIImage(named: "time7")!, UIImage(named: "time8")!, UIImage(named: "time9")!, UIImage(named: "time10")!, UIImage(named: "time11")!, UIImage(named: "time12")!, UIImage(named: "time13")!, UIImage(named: "time14")!, UIImage(named: "time15")!, UIImage(named: "time16")!, UIImage(named: "time17")!, UIImage(named: "time18")!]
+        }
+        if (!dataCenter.item[1]){
+            Animation.animationDuration = 0.2
+            imageArray = [UIImage(named: "water2")!, UIImage(named: "water3")!, UIImage(named: "water4")!]
+        }
+        if (!dataCenter.item[2]){
+            Animation.animationDuration = 1.5
+            imageArray = [UIImage(named: "light1")!, UIImage(named: "light2")!, UIImage(named: "light3")!, UIImage(named: "light5")!, UIImage(named: "light6")!, UIImage(named: "light7")!, UIImage(named: "light6")!, UIImage(named: "light5")!, UIImage(named: "light3")!, UIImage(named: "light2")!, UIImage(named: "light1")!]
+        }
+        if (!dataCenter.item[3]){
+            Animation.animationDuration = 1.7
+            imageArray = [UIImage(named: "ant1")!, UIImage(named: "ant2")!, UIImage(named: "ant3")!, UIImage(named: "ant2")!]
+        }
+        if (!dataCenter.item[4]){
+            Animation.animationDuration = 1
+            imageArray = [UIImage(named: "butterfly1")!, UIImage(named: "butterfly2")!, UIImage(named: "butterfly3")!, UIImage(named: "butterfly4")!, UIImage(named: "butterfly3")!, UIImage(named: "butterfly2")!]
+        }
+        if (!dataCenter.item[5]){
+            Animation.animationDuration = 1
+            imageArray = [UIImage(named: "worm1")!, UIImage(named: "worm2")!, UIImage(named: "worm3")!, UIImage(named: "worm2")!]
+        }
+        
+        
         if (timerData.timerIsOn == false){
             timerData.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(DoingViewController.updateTimer)), userInfo: nil, repeats: true)
             timerData.timerIsOn = true

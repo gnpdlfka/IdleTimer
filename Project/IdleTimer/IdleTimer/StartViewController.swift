@@ -29,8 +29,24 @@ class StartViewController: UIViewController {
         for i in 0...4 {
             categorySegment.setTitle(dataCenter.category[i], forSegmentAt: i)
         }
-        
-        item1.isHidden = dataCenter.item[0]
+        if (!dataCenter.item[0]){
+            item1.image = #imageLiteral(resourceName: "time0")
+        }
+        if (!dataCenter.item[1]){
+            item1.image = #imageLiteral(resourceName: "water2")
+        }
+        if (!dataCenter.item[2]){
+            item1.image = #imageLiteral(resourceName: "light1")
+        }
+        if (!dataCenter.item[3]){
+            item1.image = #imageLiteral(resourceName: "ant1")
+        }
+        if (!dataCenter.item[4]){
+            item1.image = #imageLiteral(resourceName: "butterfly2")
+        }
+        if (!dataCenter.item[5]){
+            item1.image = #imageLiteral(resourceName: "worm2")
+        }
     }
     
 
